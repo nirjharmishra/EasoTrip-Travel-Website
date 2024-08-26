@@ -912,20 +912,20 @@ input:checked + .slider:before {
     const basePrice = 64500; // Base price for 1 person
     const attendeeSelect = document.getElementById('attendees');
     const adjustedPriceElement = document.getElementById('adjusted-price');
-    //const currentPriceElement = document.querySelector('.current-price');
+    // const currentPriceElement = document.querySelector('.current-price');
     const applyButtons = document.querySelectorAll('.apply-coupon');
     const removeButtons = document.querySelectorAll('.remove-coupon');
     const coupons = document.querySelectorAll('.coupon');
-    let selectedCoupons = new Set(); // Track selected coupons
+    let selectedCoupon = null; // Track the currently selected coupon
 
     function updatePrice() {
         const numAttendees = parseInt(attendeeSelect.value);
         let totalPrice = basePrice * numAttendees;
 
-        // Apply all selected coupon discounts
-        selectedCoupons.forEach(discountAmount => {
-            totalPrice -= discountAmount;
-        });
+        // Apply the selected coupon discount if any
+        if (selectedCoupon !== null) {
+            totalPrice -= selectedCoupon;
+        }
 
         // Ensure price doesn't go below zero
         totalPrice = Math.max(totalPrice, 0);
@@ -938,11 +938,17 @@ input:checked + .slider:before {
         const coupon = button.closest('.coupon');
         const discountAmount = parseInt(button.getAttribute('data-discount'), 10);
 
+        // Remove the existing coupon selection if a new one is applied
         if (action === 'apply') {
-            selectedCoupons.add(discountAmount);
+            if (selectedCoupon !== null) {
+                // Deselect the previously selected coupon
+                document.querySelector('.coupon.selected')?.classList.remove('selected');
+            }
+
+            selectedCoupon = discountAmount;
             coupon.classList.add('selected');
-        } else if (action === 'remove') {
-            selectedCoupons.delete(discountAmount);
+        } else if (action === 'remove' && coupon.classList.contains('selected')) {
+            selectedCoupon = null;
             coupon.classList.remove('selected');
         }
 
@@ -970,20 +976,21 @@ input:checked + .slider:before {
 });
 
 document.getElementById('pets-toggle').addEventListener('change', function() {
-  let toggleText = document.getElementById('toggle-text');
-  if (this.checked) {
-    toggleText.textContent = 'Yes';
-  } else {
-    toggleText.textContent = 'No';
-  }
+    let toggleText = document.getElementById('toggle-text');
+    if (this.checked) {
+        toggleText.textContent = 'Yes';
+    } else {
+        toggleText.textContent = 'No';
+    }
 });
- function hotels(){
-    window.open('loader2.html');
- }
 
- function booknow(){
+function hotels(){
+    window.open('loader2.html');
+}
+
+function booknow(){
     window.open('loader3.html');
- }
+}
 
 
 
@@ -991,3 +998,4 @@ document.getElementById('pets-toggle').addEventListener('change', function() {
 </body>
 
 </html>
+
