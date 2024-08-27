@@ -106,7 +106,11 @@ function ladakh(){
 }
 
 function search(){
-  window.open('search-loader.html')
+  window.open('search-loader.html');
+}
+
+function login(){
+  window.open('login/login-loader.html');
 }
 
 // hotel rxpand collapse fun
