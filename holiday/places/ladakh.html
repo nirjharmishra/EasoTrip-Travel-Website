@@ -599,6 +599,7 @@ input:checked + .slider:before {
 </head>
 
 <body>
+    <form method="POST" action="receipt.php">
     <div class="header">
         <h1>Most Wanted Ladakh Package</h1>
     </div>
@@ -755,12 +756,12 @@ input:checked + .slider:before {
                 <p class="original-price">₹68,499</p>
                 <p class="discount">28% OFF (Save ₹22,082)</p>
                 <p class="adjusted-price" id="adjusted-price">₹46,417</p>
-                <button onclick=booknow()>Book Now</button>
+                <button type="submit">Generate Receipt</button>
             </div>
 
             <div class="attendees">
                 <label for="attendees">Select Number of Attendees:</label>
-                <select id="attendees">
+                <select id="attendees" name="attendees">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -800,13 +801,13 @@ input:checked + .slider:before {
                 <h2>Coupons & Offers</h2>
                 <div class="coupon">
                     <p>GRANDOFFER - ₹17,748</p>
-                    <button class="apply-coupon" data-discount="17748">Apply</button>
-                    <button class="remove-coupon" data-discount="17748">Remove</button>
+                    <input type="button" class="apply-coupon" data-discount="17748"  name="apply_coupon_grandoff">Apply</input>
+                    <input type="button" class="remove-coupon" data-discount="17748">Remove</input>
                 </div>
                 <div class="coupon">
                     <p>WELCOMEMMT - ₹21,060</p>
-                    <button class="apply-coupon" data-discount="21060">Apply</button>
-                    <button class="remove-coupon" data-discount="21060">Remove</button>
+                    <input type=button class="apply-coupon" data-discount="21060"  name="apply_coupon_grandoff">Apply</input>
+                    <input type="button" class="remove-coupon" data-discount="21060">Remove</input>
                 </div>
             </div>
             <div class="additional-services">
@@ -816,7 +817,7 @@ input:checked + .slider:before {
                     <img src="https://th.bing.com/th/id/OIP.prlxXHzuL14Br8sBmxr15gAAAA?w=271&h=300&rs=1&pid=ImgDetMain" alt="Wheelchair">
                     <div>
                         <label for="wheelchair-select">Wheelchair:</label>
-                        <select id="wheelchair-select">
+                        <select id="wheelchair-select" name="wheelchair">
                             <option value="none">None</option>
                             <option value="standard">Standard Wheelchair</option>
                             <option value="electric">Electric Wheelchair</option>
@@ -830,7 +831,7 @@ input:checked + .slider:before {
                     <img src="https://m.media-amazon.com/images/I/71cp4s8wxwL._SX679_.jpg" alt="Stroller">
                     <div>
                         <label for="stroller-select">Stroller:</label>
-                        <select id="stroller-select">
+                        <select id="stroller-select" name="stroller">
                             <option value="none">None</option>
                             <option value="single">Single Stroller</option>
                             <option value="double">Double Stroller</option>
@@ -843,7 +844,7 @@ input:checked + .slider:before {
                     <img src="https://images.pexels.com/photos/27176643/pexels-photo-27176643/free-photo-of-a-woman-holding-a-baby-in-the-woods.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Babysitter">
                     <div>
                         <label for="babysitter-select">Babysitter:</label>
-                        <select id="babysitter-select">
+                        <select id="babysitter-select" name="babysitter">
                             <option value="none">None</option>
                             <option value="halfday">Half-Day Babysitter</option>
                             <option value="fullday">Full-Day Babysitter</option>
@@ -856,7 +857,7 @@ input:checked + .slider:before {
                     <img src="https://play-lh.googleusercontent.com/s06AISm1RkzTuie5UJNczrhn22t0_5tjT9sUZIwondVe9tQ53YuK6W2WccbvB7mDzCU" alt="Translator">
                     <div>
                         <label for="translator-select">Translator:</label>
-                        <select id="translator-select">
+                        <select id="translator-select" name="translator">
                             <option value="none">None</option>
                             <option value="english">English Translator</option>
                             <option value="french">French Translator</option>
@@ -869,7 +870,7 @@ input:checked + .slider:before {
                     <img src="https://images.pexels.com/photos/3351927/pexels-photo-3351927.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Personal Chef">
                     <div>
                         <label for="chef-select">Personal Chef:</label>
-                        <select id="chef-select">
+                        <select id="chef-select" name="chef">
                             <option value="none">None</option>
                             <option value="local">Local Cuisine Chef</option>
                             <option value="international">International Cuisine Chef</option>
@@ -882,7 +883,7 @@ input:checked + .slider:before {
                     <img src="https://images.pexels.com/photos/3922943/pexels-photo-3922943.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Tour Guide">
                     <div>
                         <label for="tourguide-select">Tour Guide:</label>
-                        <select id="tourguide-select">
+                        <select id="tourguide-select" name="tourguide">
                             <option value="none">None</option>
                             <option value="halfday">Half-Day Tour Guide</option>
                             <option value="fullday">Full-Day Tour Guide</option>
@@ -894,7 +895,9 @@ input:checked + .slider:before {
             
             
             
+            
         </div>
+    </form>
         <!-- New button section for "View Hotels" -->
         <div class="view-hotels-section" style="text-align: center; padding: 20px; background-color: #f8f9fa; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
             <h2 style="font-size: 1.5rem; margin-bottom: 15px; color: #333;">Explore Our Hotels</h2>
@@ -909,7 +912,7 @@ input:checked + .slider:before {
     <script>
         // JavaScript to handle the price adjustment
         document.addEventListener('DOMContentLoaded', function () {
-    const basePrice = 64500; // Base price for 1 person
+    const basePrice = 46417; // Base price for 1 person
     const attendeeSelect = document.getElementById('attendees');
     const adjustedPriceElement = document.getElementById('adjusted-price');
     // const currentPriceElement = document.querySelector('.current-price');
@@ -986,10 +989,6 @@ document.getElementById('pets-toggle').addEventListener('change', function() {
 
 function hotels(){
     window.open('loader2.html');
-}
-
-function booknow(){
-    window.open('loader3.html');
 }
 
 

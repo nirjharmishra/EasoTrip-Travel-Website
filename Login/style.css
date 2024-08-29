@@ -12,11 +12,11 @@
 body {
     margin: 0;
     color: #6a6f8c;
-    background-image: url('https://images.pexels.com/photos/5015219/pexels-photo-5015219.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-image: url('https://images.pexels.com/photos/11623760/pexels-photo-11623760.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
     background-size: cover;
     background-position: center;
     background-blend-mode: darken; /* Adjust the blending mode */
-    background-color: rgba(0, 0, 0, 0.675); /* Add a color overlay */
+    background-color: rgba(0, 0, 0, 0.237); /* Add a color overlay */
     font: 600 16px/18px 'Open Sans', sans-serif;
     display: flex;
     justify-content: center;
