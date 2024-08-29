@@ -593,8 +593,6 @@ input:checked + .slider:before {
 }
 
 
-
-
     </style>
 </head>
 
@@ -626,8 +624,28 @@ input:checked + .slider:before {
         <div class="time">
             <strong>11:00 - 12:25</strong>
             <p>Cabin: 7 Kgs | Check-in: 15 Kgs</p>
+            <!-- Add this inside the flight details section -->
+            <div style="
+            margin-top:5px ;
+            border: 2px solid #007bff;
+            background-color: #007bff;
+            border-radius: 7px;
+            padding: 10px 20px;
+            color: white;
+            text-align: center;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 0.8rem;
+          ">
+                <a href="flight-loader.html" target="_blank" style="text-decoration: none; color:white;">
+                Book Flight
+                </a>
+                </div>
         </div>
-    </div>
+    </div>
     <div class="tour-info">
         <img src="https://imgd.aeplcdn.com/664x374/n/cw/ec/115777/ertiga-exterior-right-front-three-quarter-5.jpeg?isig=0&q=80" alt="Car">
         <div>
@@ -902,9 +920,24 @@ input:checked + .slider:before {
         <div class="view-hotels-section" style="text-align: center; padding: 20px; background-color: #f8f9fa; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
             <h2 style="font-size: 1.5rem; margin-bottom: 15px; color: #333;">Explore Our Hotels</h2>
             <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/19/58/50/2c/the-abduz.jpg?w=1200&h=-1&s=1" alt="Hotels Image" style="width: 100%; max-width: 300px; display: block; margin: 0 auto; border-radius: 8px;">
-            <button class="hotel-btn" onclick="hotels()">
+            <div style="
+            margin-top:5px ;
+            border: 2px solid #007bff;
+            background-color: #007bff;
+            border-radius: 7px;
+            padding: 10px 20px;
+            color: white;
+            text-align: center;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+          ">
+                <a href="loader2.html" target="_blank" style="text-decoration: none; color:white;">
                 View Hotels
-            </button>
+                </a>
+                </div>
         </div>
         
     </div>
@@ -987,9 +1020,6 @@ document.getElementById('pets-toggle').addEventListener('change', function() {
     }
 });
 
-function hotels(){
-    window.open('loader2.html');
-}
 
 
 

@@ -109,10 +109,13 @@ function search(){
   window.open('search-loader.html');
 }
 
-function login(){
-  window.open('login/login-loader.html');
-}
+// function login(){
+//   window.open('testing/login-loader.html');
+// }
 
+// function register(){
+//   window.open('testing/register-loader.html')
+// }
 // hotel rxpand collapse fun
 const hotelButton = document.querySelector('.hotel-button');
 const hotelCard = document.querySelectorAll('.off');
