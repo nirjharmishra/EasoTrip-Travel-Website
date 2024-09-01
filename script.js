@@ -105,6 +105,24 @@ function ladakh(){
   window.open('ladakh-loader.html');
 }
 
+function manali(){
+  window.open('holiday/places/manali-loader.html');
+}
+
+function shimla(){
+  window.open('holiday/places/shimla-loader.html');
+}
+function darjeeling(){
+  window.open('holiday/places/darjeeling-loader.html');
+}
+function lakshwadeep(){
+  window.open('holiday/places/lakshwadeep-loader.html');
+}
+
+function jaipur(){
+  window.open('holiday/places/jaipur-loader.html');
+}
+
 function search(){
   window.open('search-loader.html');
 }
@@ -185,3 +203,46 @@ document.getElementById('searchBox').addEventListener('keydown', function (event
     performSearch();
   }
 });
+
+
+document.getElementById("profile-pic").addEventListener("click", function() {
+  var dropdown = document.getElementById("dropdown-menu");
+  if (dropdown.style.display === "block") {
+      dropdown.style.display = "none";
+  } else {
+      dropdown.style.display = "block";
+  }
+});
+
+
+
+window.onclick = function(event) {
+  if (!event.target.closest('.profile-pic')) {
+      var dropdown = document.getElementById("dropdown-menu");
+      if (dropdown.style.display === "block") {
+          dropdown.style.display = "none";
+      }
+  }
+}
+
+
+//log out
+
+function toggleLogout() {
+  var menu = document.getElementById("logoutMenu");
+  if (menu.style.display === "none" || menu.style.display === "") {
+    menu.style.display = "block";
+  } else {
+    menu.style.display = "none";
+  }
+}
+x
+
+window.onclick = function(event) {
+  if (!event.target.matches('.profile-pic img')) {
+    const logoutMenu = document.getElementById('logoutMenu');
+    if (logoutMenu.style.display === 'block') {
+      logoutMenu.style.display = 'none';
+    }
+  }
+}

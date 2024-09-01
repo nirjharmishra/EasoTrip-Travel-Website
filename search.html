@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="search.css">
 </head>
 <body>
-     <!-- Fixed Stylish Search Bar -->
-    <div class="search-container">
-        <input type="text" class="search-input" placeholder="Search for your next adventure...">
-        <button class="search-button">Search</button>
+      <!-- Search Input -->
+      <div class="search-container">
+        <input type="text" class="search-input" id="searchInput" placeholder="Search for a package..." onkeyup="searchPackages()" value="">
+        <button class="search-button" onclick="searchPackages()">Search</button>
     </div>
+
     <div class="container">
         <div class="filters">
             <h2>Duration (in Nights)</h2>
@@ -62,7 +63,7 @@
                     </div>
                 </div>
             </div>
-            <div class="package">
+            <div class="package" onclick="manali()">
                 <img src="https://images.pexels.com/photos/7086906/pexels-photo-7086906.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Most Wanted Ladakh Package">
                 <div class="package-details">
                     <h3>Luxurious Manali Package</h3>
@@ -81,7 +82,7 @@
                     </div>
                 </div>
             </div>
-            <div class="package">
+            <div class="package" id="shimla">
                 <img src="https://images.pexels.com/photos/27180236/pexels-photo-27180236/free-photo-of-blue-hue.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Exclusive Shimla Tour">
                 <div class="package-details">
                     <h3>Exclusive Shimla Tour</h3>
@@ -100,7 +101,7 @@
                     </div>
                 </div>
             </div>
-            <div class="package">
+            <div class="package" id="darjeeling">
                 <img src="https://images.pexels.com/photos/10440693/pexels-photo-10440693.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Most Wanted Darjeeling Package">
                 <div class="package-details">
                     <h3>Cholo Darjeeling</h3>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Most Wanted Ladakh Package</title>
+    <title>Most Wanted Ladakh Package</title>   
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
@@ -592,6 +592,43 @@ input:checked + .slider:before {
     display: block; width: 100%; max-width: 300px; margin: 15px auto; padding: 12px 0; font-size: 16px; font-weight: bold; color: #ffffff; background-color: #003c7d; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;
 }
 
+.weather-info {
+    margin-top: 20px;
+    padding: 20px;
+    border: 2px solid #007bff;
+    background: linear-gradient(135deg, #e9f5ff 0%, #f8f9fa 100%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    font-size: 16px;
+    color: #333;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.weather-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.weather-info h4 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.weather-info p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.weather-info p strong {
+    color: #007bff;
+}
+
+.weather-info span {
+    font-weight: bold;
+}
+
 
     </style>
 </head>
@@ -610,7 +647,20 @@ input:checked + .slider:before {
     </div>
 
     <div class="container">
+        
         <div class="itinerary">
+            <!-- Weather Information Section -->
+    <!-- Weather Information Section -->
+    <!-- Weather Information Section -->
+<div class="weather-info">
+    <h4>Weather in <span class="city">Ladakh</span></h4>
+    <p><strong>Temperature:</strong> <span class="temp">Loading...</span></p>
+    <p><strong>Condition:</strong> <span class="condition">Loading...</span></p>
+    <p><strong>Humidity:</strong> <span class="humidity">Loading...</span></p>
+    <p><strong>Wind Speed:</strong> <span class="wind-speed">Loading...</span></p>
+</div>
+
+<br>
             <h2>7 DAY PLAN</h2>
 <div class="day-plan">
     <!-- Day 1 -->
@@ -646,6 +696,7 @@ input:checked + .slider:before {
                 </div>
         </div>
     </div>
+
     <div class="tour-info">
         <img src="https://imgd.aeplcdn.com/664x374/n/cw/ec/115777/ertiga-exterior-right-front-three-quarter-5.jpeg?isig=0&q=80" alt="Car">
         <div>
@@ -934,7 +985,7 @@ input:checked + .slider:before {
             font-weight: bold;
             text-decoration: none;
           ">
-                <a href="loader2.html" target="_blank" style="text-decoration: none; color:white;">
+                <a href="ladakh-hotel-loader.html" target="_blank" style="text-decoration: none; color:white;">
                 View Hotels
                 </a>
                 </div>
@@ -1019,6 +1070,69 @@ document.getElementById('pets-toggle').addEventListener('change', function() {
         toggleText.textContent = 'No';
     }
 });
+
+//weather
+
+const api = {
+  key: "fcc8de7015bbb202209bbf0261babf4c",
+  base: "https://api.openweathermap.org/data/2.5/"
+}
+
+// Load Ladakh's weather on page load
+document.addEventListener('DOMContentLoaded', () => {
+  getResults('Leh');
+});
+
+const searchbox = document.querySelector('.search-box');
+searchbox.addEventListener('keypress', setQuery);
+
+function setQuery(evt) {
+  if (evt.keyCode == 13) {
+    getResults(searchbox.value);
+  }
+}
+
+function getResults(query) {
+  fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+    .then(response => response.json())
+    .then(displayResults)
+    .catch(error => console.error('Error fetching the weather data:', error));
+}
+
+function displayResults(weather) {
+  // Update city name
+  let city = document.querySelector('.city');
+  city.innerText = `${weather.name}, ${weather.sys.country}`;
+
+  // Update temperature
+  let temp = document.querySelector('.temp');
+  temp.innerText = `${Math.round(weather.main.temp)}°c`;
+
+  // Update weather condition
+  let condition = document.querySelector('.condition');
+  condition.innerText = weather.weather[0].main;
+
+  // Update humidity
+  let humidity = document.querySelector('.humidity');
+  humidity.innerText = `${weather.main.humidity}%`;
+
+  // Update wind speed
+  let windSpeed = document.querySelector('.wind-speed');
+  windSpeed.innerText = `${weather.wind.speed} m/s`;
+}
+
+function dateBuilder(d) {
+  let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+  let day = days[d.getDay()];
+  let date = d.getDate();
+  let month = months[d.getMonth()];
+  let year = d.getFullYear();
+
+  return `${day} ${date} ${month} ${year}`;
+}
+
 
 
 
