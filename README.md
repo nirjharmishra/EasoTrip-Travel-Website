@@ -2,8 +2,6 @@
 
 EasoTrip is a comprehensive travel website that helps users discover destinations, book accommodations, and plan their perfect vacation with ease.
 
-![EasoTrip Screenshot](Screenshot 2025-04-07 022012.png)
-
 ## ✨ Features
 
 ### 🏨 Accommodation Booking
