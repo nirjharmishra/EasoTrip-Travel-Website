@@ -69,14 +69,8 @@ git clone https://github.com/yourusername/EasoTrip.git
 
 📁 Project Structure
 
-EasoTrip/
-├── index.html          # Main entry point
-├── style.css          # Main stylesheet
-├── script.js          # Main JavaScript file
-├── database/          # Database files
-├── users/             # User authentication files
-├── imgs/             # Image assets
-└── README.md         # Project documentation
+<img width="455" height="218" alt="image" src="https://github.com/user-attachments/assets/a7b2ad21-d028-454a-9a5a-0c8fdef0b734" />
+
 
 ## 💻 Development
 To contribute to this project:
